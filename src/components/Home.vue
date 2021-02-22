@@ -3,8 +3,8 @@
     <div id="main-home">
       <div id="sidebar">
         <ul class="sidebar-nav">
-          <li class="sidebar-brand text-center">
-            <a style="font-size: 25px"> OB </a>
+          <li class="sidebar-brand text-left">
+            <a style="font-size: 25px"> Project Open Bank</a>
           </li>
           <li>
             <router-link to="/"
@@ -13,15 +13,6 @@
                 class="fa fa-dashboard"
               ></i
               >DASHBOARD</router-link
-            >
-          </li>
-          <li>
-            <router-link to="/">
-              <i
-                style="font-size: 25px; padding-right: 10px"
-                class="fa fa-money"
-              ></i
-              >MOEDAS</router-link
             >
           </li>
           <li>

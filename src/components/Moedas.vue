@@ -93,7 +93,6 @@ export default {
 
   mounted() {
     this.getResults();
-    this.values.splice(this.values, 0);
   },
 };
 </script>
@@ -102,10 +101,14 @@ export default {
 <style>
 .variation-red {
   color: red;
+  font-weight: 500;
+  font-size: 24px;
 }
 
 .variation-green {
   color: green;
+  font-weight: 500;
+  font-size: 24px;
 }
 </style>
 

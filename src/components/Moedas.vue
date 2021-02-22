@@ -93,6 +93,7 @@ export default {
 
   mounted() {
     this.getResults();
+    this.values.splice(this.values, 0);
   },
 };
 </script>

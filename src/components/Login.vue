@@ -85,17 +85,28 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.username, this.password)
-        .then(
-          this.$router.replace("home"),
-          console.log(" Bem vinda(o) "),
-          (err) => {
-            console.log("Não foi possível realizar o login. " + err.message);
-          }
-        );
+        .then(this.$router.replace("home"), (err) => {
+          console.log("Não foi possível realizar o login. " + err.message);
+        });
     },
   },
 
-  mounted() {},
+  mounted() {
+    if (localStorage.username) {
+      this.username = localStorage.username;
+    }
+    if (localStorage.password) {
+      this.password = localStorage.password;
+    }
+  },
+  watch: {
+    username(newUsername) {
+      localStorage.username = newUsername;
+    },
+    password(newPassword) {
+      localStorage.password = newPassword;
+    },
+  },
 };
 </script>
 

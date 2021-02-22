@@ -33,6 +33,7 @@
               />
             </div>
 
+            <div v-if="error" class="error">{{ error.message }}</div>
             <button
               type="submit"
               class="btn btn-dark btn-block btn-lg rounded-pill mt-5 btn-custom"
@@ -73,6 +74,7 @@ export default {
     return {
       username: "",
       password: "",
+      error: "",
     };
   },
   methods: {
@@ -81,7 +83,7 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.username, this.password)
         .then(
-          this.$router.replace("home"),
+          this.$router.replace("login"),
           console.log(" Sua conta foi cadastrada com sucesso! "),
           (err) => {
             console.log("algo deu errado" + err.message);
@@ -109,3 +111,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.error {
+  color: red;
+  font-size: 18px;
+}
+</style>

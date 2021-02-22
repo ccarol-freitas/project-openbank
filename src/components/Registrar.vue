@@ -1,17 +1,21 @@
 <template>
-  <div class="main">
-    <div id="registrar">
-      <div class="content-main">
-        <h1 class="text-center text-white">Criar Conta</h1>
-        <div class="form">
-          <form>
+  <div id="registrar">
+    <section class="container-fluid bg">
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-12 col-sm-3">
+          <form class="form-container text-center">
+            <h1 class="mb-4 font-weight-light text-uppercase text-white">
+              Criar Conta
+            </h1>
             <div class="form-group">
               <label for="email">E-mail</label>
               <input
+                class="form-control rounded-pill form-control-lg"
+                name="username"
                 id="username"
                 type="email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                class="form-control form-control-lg"
+                pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                required
                 placeholder="exemplo@exemplo.com"
                 v-model="username"
               />
@@ -20,9 +24,10 @@
             <div class="form-group">
               <label for="password">Senha</label>
               <input
+                class="form-control form-control rounded-pill form-control-lg"
+                name="password"
                 id="password"
                 type="password"
-                class="form-control form-control-lg"
                 placeholder="Senha"
                 v-model="password"
               />
@@ -30,7 +35,7 @@
 
             <button
               type="submit"
-              class="btn btn-dark btn-lg btn-block"
+              class="btn btn-dark btn-block btn-lg rounded-pill mt-5 btn-custom"
               @click.prevent="registrar"
             >
               Criar Conta
@@ -40,19 +45,23 @@
             ><router-link to="/login">Fazer Login</router-link>
 
             <div class="social-icons">
-              <ul class="text-center">
-                <li>
-                  <a href="#"><i class="fa fa-github"></i></a>
+              <ul style="padding: 0" class="social-icons text-center">
+                <li style="padding-right: 10px">
+                  <a href="https://github.com/ccarol-freitas"
+                    ><i class="fa fa-github"></i
+                  ></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/cinterfaces/"
+                    ><i class="fa fa-instagram"></i
+                  ></a>
                 </li>
               </ul>
             </div>
           </form>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -72,19 +81,14 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.username, this.password)
         .then(
-          // (user) => {
-          //   this.$router.replace('home'),
-          //    console.log(' Sua conta foi cadastrada com sucesso! ')
-          // },
           this.$router.replace("home"),
           console.log(" Sua conta foi cadastrada com sucesso! "),
           (err) => {
             console.log("algo deu errado" + err.message);
           }
         );
-      // this.$router.push('/login');
       localStorage.username = this.username;
-      localStorage.username = this.password;
+      localStorage.password = this.password;
     },
   },
   mounted() {
@@ -105,12 +109,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#registrar {
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-</style>

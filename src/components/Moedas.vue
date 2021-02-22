@@ -16,7 +16,6 @@
                       <th scope="col">Valor para Compra</th>
                       <th scope="col">Valor para Venda</th>
                       <th scope="col">Variação</th>
-                      <th scope="col">Observar Evolução</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -30,7 +29,7 @@
                       <td v-if="result.sell != null" class="sell">
                         {{ result.sell }}
                       </td>
-                      <td v-else class="sell">N/A</td>
+                      <td v-else class="sell">Não Disponível</td>
                       <td v-if="result.variation > 0" class="variation-green">
                         {{ result.variation }}
                       </td>
@@ -44,11 +43,6 @@
 
                       <td v-else class="variation">
                         {{ result.variation }}
-                      </td>
-                      <td>
-                        <button @click="observar" class="btn-search">
-                          <i class="fa fa-search"></i>
-                        </button>
                       </td>
                     </tr>
                   </tbody>
@@ -74,10 +68,7 @@ export default {
   },
   computed: {},
 
-  watch: {},
-
   methods: {
-    observar: function () {},
     getResults() {
       axios
         .get(
@@ -90,9 +81,22 @@ export default {
         .catch((e) => console.log(e));
     },
   },
-
   mounted() {
     this.getResults();
+    if (localStorage.username) {
+      this.username = localStorage.username;
+    }
+    if (localStorage.password) {
+      this.password = localStorage.password;
+    }
+  },
+  watch: {
+    username(newUsername) {
+      localStorage.username = newUsername;
+    },
+    password(newPassword) {
+      localStorage.password = newPassword;
+    },
   },
 };
 </script>

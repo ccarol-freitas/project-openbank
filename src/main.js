@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import App from './App.vue';
+
 import router from './router/router';
 import firebase from 'firebase';
-
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
 import {
   BootstrapVue,
   IconsPlugin
@@ -13,12 +14,15 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '@/style/style.css'
 
+import 'jquery'
+
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false;
 
+//Inicialização do Firebase
 let firebaseConfig = {
   apiKey: "AIzaSyCN8FXXKnRswdaa6AP1qpeKjop0pfNA0io",
   authDomain: "projectopenbank-auth.firebaseapp.com",
@@ -28,7 +32,7 @@ let firebaseConfig = {
   appId: "1:430295514570:web:f27d9b9732db98a54b6333",
   measurementId: "G-RFMFBZW9NF"
 };
-// Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 

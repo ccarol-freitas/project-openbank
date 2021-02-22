@@ -3,6 +3,7 @@
 ## Description Project
 ```
 O Project OpenBank é um projeto que desenvolvi para um desafio. Se trata de uma SPA (Single Page Application) utilizando o Vue.js e o Firebase para consumir dados da da API https://api.hgbrasil.com/finance.
+```
 
 ## Project setup
 ```

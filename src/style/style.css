@@ -1,114 +1,220 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    font-weight: 400;
+#login,
+#registrar {
+  background-image: url("../assets/bg-app.jpg");
+
 }
 
-body,
-html,
-.App,
-.vue-tempalte,
-.vertical-center {
-    width: 100%;
-    height: 100%;
+.main {
+  height: 100vh;
+  display: flex;
 }
 
-.navbar-light {
-    background-color: #ffffff;
-    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+
+.content-main {
+  width: 400px;
+  height: 450px;
+  color: #45505b;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
 }
 
-.vertical-center {
-    display: flex;
-    text-align: left;
-    justify-content: center;
-    flex-direction: column;
+.form {
+  margin-top: 40px;
+  width: 70%;
 }
 
-.inner-block {
-    width: 450px;
-    margin: auto;
-    background: #ffffff;
-    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-    padding: 40px 55px 45px 55px;
-    border-radius: 15px;
-    transition: all .3s;
+.social-icons li {
+  list-style: none;
+  display: inline-block;
+  padding: 5px;
 }
 
-.vertical-center .form-control:focus {
-    border-color: #2554FF;
-    box-shadow: none;
+.social-icons i {
+  font-size: 38px;
+  color: #fff;
 }
 
-.vertical-center h3,
+label,
+a,
+span {
+  color: #fff;
+  font-size: 15px;
+}
+
+a {
+  font-weight: 500;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+
+}
+
 h1 {
-    text-align: center;
-    margin: 0;
-    line-height: 1;
-    padding-bottom: 20px;
+  font-weight: 400;
+  font-size: 28px;
+  text-transform: uppercase;
 }
 
-.forgot-password,
-.forgot-password a {
-    text-align: right;
-    font-size: 13px;
-    padding-top: 10px;
-    color: #7a7a7a;
-    margin: 0;
+/*HOME*/
+td,
+th {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
 }
 
-.forgot-password a {
-    color: #2554FF;
+#main-home {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
-.social-icons {
-    text-align: center;
-    font-family: "Open Sans";
-    font-weight: 300;
-    font-size: 1.5em;
-    color: #222222;
+#sidebar {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #0a4d81;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
-.social-icons ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+#content-dash {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
 }
 
-.social-icons ul li {
-    display: inline-block;
-    zoom: 1;
-    width: 65px;
-    vertical-align: middle;
-    border: 1px solid #e3e8f9;
-    font-size: 15px;
-    height: 40px;
-    line-height: 40px;
-    margin-right: 5px;
-    background: #f4f6ff;
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.social-icons ul li a {
-    display: block;
-    font-size: 1.4em;
-    margin: 0 5px;
-    text-decoration: none;
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
 }
 
-.social-icons ul li a i {
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    -ms-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
 }
 
-.social-icons ul li a:focus i,
-.social-icons ul li a:active i {
-    transition: none;
-    color: #222222;
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
 }
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav>.sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+
+.sidebar-nav>.sidebar-brand a {
+  color: #fff;
+}
+
+.sidebar-nav>.sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+.sidebar-nav li button:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-sair {
+  background: transparent;
+  border: none;
+  color: #fff;
+  position: absolute;
+  left: 40px;
+}
+
+.btn-search {
+  background: transparent;
+  border: none;
+  color: #0a4d81;
+  font-size: 27px;
+}
+
+/* .card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background: #c4c4c4;
+    color: black;
+    padding: 15px;
+    border-radius: 7px;
+  } */
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buy {
+  font-size: 20px;
+}
+
+.sell {
+  font-size: 20px;
+}
+
+/* bottom */
+.variation {
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  #main-home {
+    padding-left: 250px;
+  }
+
+  #sidebar {
+    width: 250px;
+  }
+
+  #content-dash {
+    padding: 20px;
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 600px) {}

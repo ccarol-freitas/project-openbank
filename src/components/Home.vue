@@ -1,39 +1,74 @@
 <template>
-    <div id="home">Teste</div>
+  <div id="home">
+    <div id="main-home">
+      <div id="sidebar">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand text-center">
+            <a style="font-size: 25px"> OB </a>
+          </li>
+          <li>
+            <router-link to="/"
+              ><i
+                style="font-size: 25px; padding-right: 10px"
+                class="fa fa-dashboard"
+              ></i
+              >DASHBOARD</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/">
+              <i
+                style="font-size: 25px; padding-right: 10px"
+                class="fa fa-money"
+              ></i
+              >MOEDAS</router-link
+            >
+          </li>
+          <li>
+            <button class="btn-sair" @click="sair">
+              <i
+                style="font-size: 25px; padding-right: 10px"
+                class="fa fa-sign-out"
+              ></i
+              >SAIR
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div id="content-dash">
+        <Moedas />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import axios from "axios";
-
+import firebase from "firebase";
+import Moedas from "@/components/Moedas";
 export default {
-  data() {
-    return {};
+  components: {
+    Moedas,
   },
-  mounted() {
-    axios.get("https://api.hgbrasil.com/finance?array_limit=1&fields=only_results,bitcoin&key=7197fb6b")
-    .then(response => console.log(response))
-  }
-};
-// import axios from 'axios';
-// export default {
-//    data(){
-//        return{
-//            Finance:null
-//        }
-//    },
-//    mounted(){
-//        this.getFinance();
-//    },
-//    methods:{
-//        getFinance(){
-//            axios
-//             .get('https://api.hgbrasil.com/finance')
-//                 .then(response => {
-//                     this.finance = response.data
-//                 })
-//                 .catch(e => console.log(e))
-//        }
-//    }
-// }
+  name: "home",
+  data() {
+    return {
+      results: null,
+    };
+  },
 
+  methods: {
+    sair: function () {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("login");
+        });
+    },
+  },
+
+  mounted() {},
+};
 </script>
+

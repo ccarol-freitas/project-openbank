@@ -72,7 +72,8 @@ export default {
     getResults() {
       axios
         .get(
-          "https://api.hgbrasil.com/finance/?format=json-cors&fields=only_results,currencies&key=cc61020d"
+           // "https://api.hgbrasil.com/finance/?format=json-cors&fields=only_results,currencies&key=cc61020d"
+          "https://api.hgbrasil.com/finance/?format=json&fields=only_results,currencies&key=cc61020d"
         )
         .then((response) => {
           console.log(response);
